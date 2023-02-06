@@ -8,9 +8,11 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float HP;
     [SerializeField] Slider sl;
+    Vector3 scale;
 
     private void Start()
     {
+        scale = gameObject.transform.localScale;
         sl.maxValue = HP;
     }
 
@@ -20,6 +22,8 @@ public class Enemy : MonoBehaviour
         {
             HP -= collision.gameObject.GetComponent<accBullet>().damage;
             sl.value = HP;
+            gameObject.transform.localScale -= gameObject.transform.localScale / 8;
+            Invoke("reScale", 0.2f);
 
             if (HP <= 0)
             {
@@ -29,4 +33,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void reScale()
+    {
+        gameObject.transform.localScale = scale;
+    }
 }

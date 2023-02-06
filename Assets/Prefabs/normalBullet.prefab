@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 275128657752559349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.000378, y: -3.4322045, z: -1.4126904}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513a0a30a0a593e409dfb49ae1098144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplify: 0
+  amplify: 20
   normalBullet: {fileID: 275128657752559349}
   accumulatedBullet: {fileID: 3592474041191009129, guid: 1a56986ee857f28458d9e19c80c250ed, type: 3}
   PS_Explode: {fileID: 2907265868647182504, guid: 4add8aad59e7ab641aff1a9b7be575e2, type: 3}
+  damage: 0

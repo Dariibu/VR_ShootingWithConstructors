@@ -5,10 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region parent
-    Sniper mySniper;
+    public Sniper mySniper;
     [SerializeField] GameObject go_sniper;
 
-    Shorty myShorty;
+    public Shorty myShorty;
     [SerializeField] GameObject go_shorty;
 
     [SerializeField] GameObject bullet, normalBullet, accumulatedBullet;
@@ -32,12 +32,12 @@ public class GameManager : MonoBehaviour
         mySniper.cannon = mySniper.go.transform.GetChild(0);
         myShorty.cannon = myShorty.go.transform.GetChild(0);
 
-        mySniper.GetThisGun();
-        currentGun = mySniper;
+        //mySniper.GetThisGun();
+        //currentGun = mySniper;
 
         CDTimer = 10;
     }
-    void Update()
+   /* void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && mySniper != currentGun) // el 1 va a ser el sniper
         {
@@ -61,4 +61,6 @@ public class GameManager : MonoBehaviour
         }
         CDTimer += Time.deltaTime;
     }
+   */
+   
 }

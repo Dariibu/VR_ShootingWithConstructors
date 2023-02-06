@@ -33,23 +33,26 @@ public class accBullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(explode);
+
+        Debug.Log(collision.gameObject.name);
+
+        //Debug.Log(explode);
         if (collision.gameObject.tag != "Bala")
         {
             if (!explode)  //esto es para el arma fuerte: al chocar, salen varias balas normales de esta bala. Es una explosión de racimo.
             {
-                int space = -2; //para dejar un espacio entre las balas.
-                gameObject.transform.position += new Vector3(0, 2, 0); //y para que no estén al nivel del suelo.
+                float space = -0.3f; //para dejar un espacio entre las balas.
+                gameObject.transform.position += new Vector3(0, 0.2f, 0); //y para que no estén al nivel del suelo.
                 for (int i = 0; i <= 3; i++) //haremos 4 balas, para los 4 vectores que tenemos en la lista "directions".
                 {
                     chosen = Random.Range(0, directions.Count - 1);
-                    GameObject myBullet = Instantiate(normalBullet, transform.position + new Vector3(space, i, space), transform.rotation);
+                    GameObject myBullet = Instantiate(normalBullet, transform.position + new Vector3(space, 0, space),Quaternion.identity);
                     myBullet.GetComponent<accBullet>().damage = damage;
-                    myBullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 200, 0));
+                    myBullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 150, 0));
                     myBullet.GetComponent<Rigidbody>().AddRelativeForce(directions[chosen] * amplify);
                     directions.RemoveAt(chosen); //lo quitamos de la lista para que no vayan en la misma dirección.
                     GameObject.Destroy(myBullet, 5f);
-                    space += 1;
+                    space += 0.1f;
                 }
                 Explode();
             }
