@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     {
         scale = gameObject.transform.localScale;
         sl.maxValue = HP;
+        sl.value = HP;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
 
             if (HP <= 0)
             {
+                ResetDummies.allDead++;
                 Destroy(sl.gameObject);
                 Destroy(this.gameObject);               
             }
