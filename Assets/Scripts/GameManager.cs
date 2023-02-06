@@ -10,21 +10,14 @@ public class GameManager : MonoBehaviour
 
     public Shorty myShorty;
     [SerializeField] GameObject go_shorty;
-
-    [SerializeField] GameObject bullet, normalBullet, accumulatedBullet;
-    Transform hand;
     #endregion
 
     [SerializeField] Gun currentGun;
-    [SerializeField] float CDTimer;
     [SerializeField] ParticleSystem PS_Shoot;
     void Awake()
     {
         mySniper = new Sniper(1, 200, 0.2f, go_sniper);
         myShorty = new Shorty(3, 50, 1.5f, go_shorty);
-
-        mySniper.gunFinger = hand;
-        myShorty.gunFinger = hand;
 
         mySniper.PS_shooting = PS_Shoot;
         myShorty.PS_shooting = PS_Shoot;
@@ -34,8 +27,6 @@ public class GameManager : MonoBehaviour
 
         //mySniper.GetThisGun();
         //currentGun = mySniper;
-
-        CDTimer = 10;
     }
    /* void Update()
     {
